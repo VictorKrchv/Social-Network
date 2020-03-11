@@ -1,0 +1,8 @@
+.loaderblock {
+    display: inline-block;
+    position: absolute;
+}
+
+.loaderblock img {
+    height: 50px;
+}

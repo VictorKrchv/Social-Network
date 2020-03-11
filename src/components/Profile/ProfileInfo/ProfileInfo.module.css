@@ -1,0 +1,54 @@
+.profileInfo {
+    display: flex;
+    padding: 20px 20px 0 20px;
+}
+
+.profileInfo__photo {
+    width: 40%; 
+    display: flex;   
+}
+
+.profileInfo__photo img {
+    border-radius: 5px;
+    width: 90%;
+    height: 90%;
+}
+
+.profileInfo__description {
+    width: 60%;
+}
+
+.profileInfo__name {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.profileInfo__status {
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.profileInfo__title{
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.profileInfo__contacts a {
+    color: #1e6aa5;
+    text-decoration: none;
+}
+
+.profileInfo__contacts a:visited {
+    color: #1e6aa5;
+    text-decoration: none;
+}
+
+.profileInfo__work {
+    margin-top: 10px;
+}
+
+.profileInfo__workTitle {
+    font-size: 18px;
+    font-weight: 600;
+}

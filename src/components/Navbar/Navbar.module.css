@@ -1,0 +1,25 @@
+.nav {
+    grid-area: n;
+
+    padding: 20px;
+    min-height: 500px;
+    background-color: #1e6aa5;
+
+}
+
+.item {
+    margin-bottom: 35px;
+}
+
+.item a {
+    color: #e6e6e6;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.item a.active,
+.item a.actived:hover {
+    color: black;
+    border-bottom: 2px solid black;
+}

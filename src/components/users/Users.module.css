@@ -1,0 +1,121 @@
+.users {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.users__logo {
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+.pages {
+    cursor: pointer;
+}
+
+.pages span {
+    margin-left: 3px;
+    font-size: 20px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.user__item {
+    margin-bottom: 20px;
+}
+
+.user__inner {
+    display: flex;
+    min-height: 100px;
+}
+
+.user__photo {
+    width: 15%;
+    text-align: center;
+}
+
+.user__button {
+    color: #fff;
+    font-size: 18px;
+    min-width: 100px;
+    padding: 3px 0;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.45);
+    box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.45);
+}
+
+.user__button:hover {
+    cursor: pointer;
+}
+
+.user__button:focus {
+    outline: none;
+}
+
+.follow {
+    background-color: #1e6aa5;
+    transition: .3s;
+}
+
+.unfollow {
+    background-color: #1e84a5;
+    transition: .3s
+}
+
+.user__img {
+    width: 85px;
+    height: 85px;
+
+    border: 1px solid gray;
+    border-radius: 50%;
+    -webkit-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.45);
+    box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.45);
+}
+
+.user__about {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px #acacac solid;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.45);
+    box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.45);
+}
+
+.user__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.user__name {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.user__status {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.user__location {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    text-align: right;
+}
+
+.user__country {
+    font-size: 20px;
+}
+
+.user__city {
+    font-size: 16px;
+}

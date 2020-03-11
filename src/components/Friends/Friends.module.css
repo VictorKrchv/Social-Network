@@ -1,0 +1,38 @@
+.header {
+    border-bottom: 2px solid rgba(128, 128, 128, 0.358) ;
+    padding-top: 0px;
+    padding-bottom: 30px;
+
+    font-size: 20px;
+}
+
+.friend {
+    margin-top: 15px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.358);;
+}
+
+
+.friend__inner {
+    display: flex;
+}
+
+.friend__icon {
+    width: 10%;
+}
+.friend__icon img {
+    width: 75px;
+    border-radius: 50%;
+    border: 1px solid gray
+}
+
+.friend__about {
+    
+}
+
+.friend__about a {
+    color: #1e6aa5;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
