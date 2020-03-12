@@ -24,6 +24,9 @@ const LoginForm = (props) => {
             <div>
                 <Field name={'rememberMe '} component={Input} type="checkbox" name="rememberMe" id="" /> Remember my
             </div>
+            {props.error && <div className={s.formSummaryError}>
+                                {props.error}
+                            </div>}
             <div>
                 <Box component='div' className={s.btnBox}>
                     <Button className={s.btn} type="submit" variant="contained" color="secondary">
@@ -42,8 +45,8 @@ const LoginReduxForm = reduxForm({
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-     
-       props.loginUser(formData.email, formData.password, formData.rememberMe)
+
+        props.loginUser(formData.email, formData.password, formData.rememberMe)
     }
 
     return <div className={s.login}>

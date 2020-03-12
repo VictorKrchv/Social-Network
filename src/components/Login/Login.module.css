@@ -13,6 +13,10 @@
 
 .btnBox {
     margin-top: 20px;
+}
 
+.formSummaryError {
+    padding: 5px;
+    border: 1px solid red;
 }
 

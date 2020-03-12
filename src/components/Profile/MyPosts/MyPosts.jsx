@@ -9,6 +9,7 @@ const Textarea = Element("textarea");
 const maxLength30 = maxLengthCreator(30)
 
 const MyPosts = (props) => {
+    console.log("RENDER")
     let postsElements =
         props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id} />);
 
