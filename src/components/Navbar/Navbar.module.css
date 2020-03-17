@@ -1,25 +1,33 @@
 .nav {
     grid-area: n;
-
     padding: 20px;
-    min-height: 500px;
-    background-color: #1e6aa5;
 
 }
 
 .item {
-    margin-bottom: 35px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 7px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.item:hover {
+    background-color: #ececec;
 }
 
 .item a {
-    color: #e6e6e6;
+    position: relative;
+    display: block;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
+    padding: 5px 10px;
+    color: #000;
 }
 
-.item a.active,
-.item a.actived:hover {
-    color: black;
-    border-bottom: 2px solid black;
+.item .active {
+    background-color: #1e6ba5;
+    color: #fff;
+    
 }
+

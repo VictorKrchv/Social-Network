@@ -1,54 +1,116 @@
 .profileInfo {
     display: flex;
-    padding: 20px 20px 0 20px;
+
 }
+
+
 
 .profileInfo__photo {
-    width: 40%; 
+    width: 33%; 
     display: flex;   
+    
 }
 
-.profileInfo__photo img {
-    border-radius: 5px;
-    width: 90%;
-    height: 90%;
+.profileInfo__photoInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 270px;
+    height: 270px;
+    background-color: #ececec;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.profileInfo__photoInner img {
+    width: 255px;
+    height: 255px;
 }
 
 .profileInfo__description {
-    width: 60%;
+    width: 67%;
+    background-color: #ececec;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 .profileInfo__name {
-    margin-bottom: 5px;
-    font-size: 20px;
+    margin-bottom: 8px;
+    font-size: 22px;
 }
 
 .profileInfo__status {
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
     font-weight: 300;
 }
 
-.profileInfo__title{
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: 500;
+.input {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 300px;
+}
+.input:focus {
+    font-size: 16px;
 }
 
-.profileInfo__contacts a {
-    color: #1e6aa5;
-    text-decoration: none;
+.contacts {
+    padding-top: 1px;
+    position: relative;
+    margin-top: 10px;
 }
 
-.profileInfo__contacts a:visited {
-    color: #1e6aa5;
-    text-decoration: none;
+
+.contacts__title{
+    font-size: 14px;
+    font-weight: 600;
+   
+    background: #ececec;
+    padding: 0 4px;
+    color: #6d6d6d;
+
+    position: absolute;
+    left: 25px;
+    top: 0px;
+    
 }
+
+.contacts__main {
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6d6d6d;
+    line-height: 1.6;
+}
+
+
 
 .profileInfo__work {
+    padding-top: 1px;
+    position: relative;
     margin-top: 10px;
 }
 
 .profileInfo__workTitle {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
+   
+    background: #ececec;
+    padding: 0 4px;
+    color: #6d6d6d;
+
+    position: absolute;
+    left: 25px;
+    top: 0px;
+}
+
+.profileInfo__main {
+    margin-top: 15px;
+    line-height: 1.6;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6d6d6d
 }

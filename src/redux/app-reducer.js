@@ -1,4 +1,3 @@
-
 import { getAuthUserData } from "./auth-reducer";
 
 const INITIALIZING_SUCCESS = "INITIALIZING_SUCCESS"

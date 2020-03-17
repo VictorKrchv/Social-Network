@@ -4,12 +4,13 @@ const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const SET_USER_PROFILE = "SET_USER_PROFILE"
 const SET_USER_STATUS = "SET_USER_STATUS"
+const DELETE_POST = "DELETE_POST"
 
 let initialState = {
     posts: [
-        { id: "1", message: 'Hi, how are you?', likesCount: '0' },
-        { id: "2", message: 'Hola, que tal?', likesCount: '23' },
-        { id: "3", message: 'I gonna take my horse', likesCount: '13' },
+        { id: "1", message: 'Hi, how are you?', likesCount: '0', date: new Date("2017-01-26") },
+        { id: "2", message: 'Hola, que tal?', likesCount: '23', date: new Date("2020-03-12") },
+        { id: "3", message: 'I gonna take my horse', likesCount: '13', date: new Date(2020, 2, 16, 14, 20, 1) },
     ],
     profile: null,
     status: ""
@@ -19,15 +20,23 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
+            let now = new Date()
             let newPost = {
                 id: state.posts.length + 1,
                 message: action.text,
-                likesCount: 0
+                likesCount: 0,
+                date: new Date(),
             }
             return {
                 ...state,
                 posts: [...state.posts, newPost],
             };
+        }
+        case DELETE_POST: {
+            return {
+                ...state,
+                posts: state.posts.filter(post => post.id != action.id)
+            }
         }
         case UPDATE_NEW_POST_TEXT: {
             return {
@@ -47,9 +56,14 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
+export const deletePost = (id) => ({
+    type: DELETE_POST, id
+})
+
 export const addPost = (text) => ({
     type: ADD_POST, text
 })
+
 const setUserProfile = (profile) => ({
     type: SET_USER_PROFILE, profile
 })

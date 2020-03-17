@@ -4,6 +4,7 @@ import PreLoader from '../../common/Preloader';
 import profileAvatar from "../../../assets/images/profileAvatar.png"
 import ProfileStatus from "./ProfileStatus"
 import ProfileContact from './ProfileContact';
+import ProfileStatusWithHooks from './ProfileStatusWIthHooks';
 
 const ProfileInfo = (props) => {
 
@@ -17,17 +18,24 @@ const ProfileInfo = (props) => {
         <div>
             <div className={s.profileInfo}>
                 <div className={s.profileInfo__photo}>
-                    <img src={props.profile.photos.large ? props.profile.photos.large : profileAvatar} alt="" />
+                    <div className={s.profileInfo__photoInner}>
+                        <img src={props.profile.photos.large ? props.profile.photos.large : profileAvatar} alt="" />
+                    </div>
                 </div>
                 <div className={s.profileInfo__description}>
                     <div className={s.profileInfo__name}>{props.profile.fullName}</div>
-                    <ProfileStatus updateUserStatus={props.updateUserStatus} status={props.status} />
-                    <ProfileContact {...props} />>
+                    <ProfileStatusWithHooks updateUserStatus={props.updateUserStatus} status={props.status} />
+                   
                     <div className={s.profileInfo__work}>
-                        <div className={s.profileInfo__workTitle}>Работа:</div>
-                        <div>В поиске работы: {props.profile.lookingForAJob ? "да" : "нет"}</div>
-                        <div>Описание работы: {props.profile.lookingForAJobDescription ? props.profile.lookingForAJobDescription : ""} </div>
+                        <hr />
+                        <div className={s.profileInfo__workTitle}>Main Information</div>
+                        <div className={s.profileInfo__main}>
+                            <div>Looking for a job: {props.profile.lookingForAJob ? "yes" : "no"}</div>
+                            <div>Professionals skills: {props.profile.lookingForAJobDescription ? props.profile.lookingForAJobDescription : ""} </div>
+                        </div>
                     </div>
+                    <ProfileContact {...props} />
+
                 </div>
             </div>
             <div className={s.descriptionBlock}>

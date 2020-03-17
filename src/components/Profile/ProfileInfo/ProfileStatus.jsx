@@ -13,6 +13,7 @@ class ProfileStatus extends React.Component {
             editMode: true
         })
     }    
+    
     deActivateEditMode = () => {
         this.setState({
             editMode: false
@@ -48,5 +49,7 @@ class ProfileStatus extends React.Component {
         </>
     }
 }
+
+
 
 export default ProfileStatus
