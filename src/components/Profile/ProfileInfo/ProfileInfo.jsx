@@ -14,7 +14,7 @@ const ProfileInfo = (props) => {
             <PreLoader />
         </div>
     }
-    debugger
+    
 
     return (
         <div>

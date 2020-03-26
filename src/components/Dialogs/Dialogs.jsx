@@ -20,7 +20,7 @@ const Dialogs = (props) => {
     }
     
 
-    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem getMessagesWithUser={props.getMessagesWithUser} name={d.userName} key={d.id} id={d.id} />);
+    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem getDialog={props.getMessagesWithUser} getMessagesWithUser={props.getMessagesWithUser} name={d.userName} key={d.id} id={d.id} />);
     let messagesElements = props.dialogsPage.messages.map(m => <Message deleteMessage={deleteMessage} userId={props.userId} senderId={m.senderId} message={m.body} key={m.id} id={m.id} />);
 
 

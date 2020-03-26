@@ -7,25 +7,9 @@ import { useState } from 'react';
 const DialogItem = (props) => {
     let path = "/dialogs/" + props.id;
 
-    const instance = Axios.create({
-        withCredentials: true,
-        baseURL: "https://social-network.samuraijs.com/api/1.0/",
-        headers: {
-            "API-KEY": "ef077242-5039-4d29-9155-e3c59332bdf1"
-        }
-    })
+    
 
-    const [data, setData] = useState('123');
-
-    let getDialog = (id) => {
-        instance.get(`dialogs`)
-        .then(response => {
-            setData(response.data)
-        })
-    }
-
-
-    return <div onClick={getDialog.bind(null, props.id)} className={s.dialog + ' ' + s.active}>
+    return <div onClick={props.getDialog.bind(null, props.id)} className={s.dialog + ' ' + s.active}>
         <NavLink to={path}>
             <div onClick={props.getMessagesWithUser.bind(null, props.id)} className={s.dialog__item}>
                 <div className={s.dialog__avatar}>
