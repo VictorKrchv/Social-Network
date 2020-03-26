@@ -68,8 +68,18 @@
 
 }
 
+.hint {
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    
+}
+
 .message {
     margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .dialogs__input {
@@ -97,4 +107,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.incoming {
+    color: red
 }

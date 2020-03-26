@@ -5,10 +5,28 @@
 
 
 
-.profileInfo__photo {
-    width: 33%; 
-    display: flex;   
+.profileInfo__left {
+    width: 33%;     
+}
+
+.profileInfo__getDialog {
+    width: 270px;
+    height: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profileInfo__getDialog a {
+    display: block;
+    background-color: #1e6aa5;
+    color: white;
+    text-decoration: none;
+    text-align: center;
     
+    
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
 .profileInfo__photoInner {

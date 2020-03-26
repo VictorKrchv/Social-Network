@@ -1,4 +1,5 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import friendsReducer from "./friends-reducer";
@@ -19,7 +20,10 @@ let reducers = combineReducers({
     app: appReducer
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
+let store = createStore(
+    reducers,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+);
 
 window.store = store
 

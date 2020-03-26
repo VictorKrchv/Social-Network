@@ -1,6 +1,7 @@
 import * as axios from 'axios';
 
 
+
 const instance = axios.create({
     withCredentials: true,
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
@@ -28,12 +29,12 @@ export const userAPI = {
                 return response.data
             })
     },
-    getProfile(userId ) {
+    getProfile(userId) {
         return profileAPI.getProfile(userId)
     },
 }
 export const profileAPI = {
-    getProfile(userId ) {
+    getProfile(userId) {
         return instance.get(`profile/${userId}`)
     },
     getStatus(userId) {
@@ -51,9 +52,43 @@ export const authAPI = {
         return instance.get('auth/me')
     },
     login(email, password, rememberMe = false) {
-        return instance.post('auth/login', {email, password, rememberMe})
+        return instance.post('auth/login', { email, password, rememberMe })
     },
     logout() {
         return instance.delete('auth/login')
+    }
+}
+
+
+export const dialogsAPI = {
+    startDialog(id) {
+        instance.put(`dialogs/${id}`)
+            .then(response => {
+                return response
+            })
+    },
+    getDialogs() {
+        return instance.get(`dialogs`)
+            .then(response => {
+                return response.data
+            })
+    },
+    getMessages(id) {
+        return instance.get(`dialogs/${id}/messages`)
+        .then(response => {
+            return response.data
+        })
+    },
+    sendMessage(id, body) {
+        return instance.post(`dialogs/${id}/messages`, {body})
+        .then(response => {
+            return response.data
+        })
+    },
+    deleteMessage(id) {
+        return instance.delete(`dialogs/messages/${id}`)
+        .then(response => {
+            return response.data
+        })
     }
 }

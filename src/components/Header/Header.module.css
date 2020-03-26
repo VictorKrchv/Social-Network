@@ -23,8 +23,13 @@
 .user__inner {
     display: flex;
     align-items: center;
-    
     padding: 0px 10px;
+}
+
+.user__inner:focus {
+    border: 2px solid rgba(0, 152, 240, 0.658);
+    border-radius: 5px;
+    outline: none;
 }
 
 .user__avatar img {
@@ -54,7 +59,7 @@
 }
 .autorizeMenu {
     position: absolute;
-    top: 50px;
+    top: 40px;
     z-index: 100;
     margin: 0;
     padding: 0px 0px;

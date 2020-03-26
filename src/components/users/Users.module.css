@@ -3,22 +3,50 @@
     margin: 0 auto;
 }
 
+button {
+    cursor: pointer;
+}
+
 .users__logo {
-    
+
     font-size: 30px;
 }
 
 .pages {
     cursor: pointer;
+    display: flex;
+    margin: 20px 0;
 }
 
-.pages span {
-    margin-left: 3px;
+.pages img {
+    width: 15px;
+}
+
+.pages img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.pages span,
+.pages button {
     font-size: 20px;
+    min-width: 50px;
+    text-align: center;
+    background-color: #ececec;
+    border: 1px solid rgba(128, 128, 128, 0.507);
+    transition: .3s ease;
 }
 
-.selectedPage {
-    font-weight: bold;
+.pages span:hover,
+.pages button:hover {
+    transform: translateY(-10%);
+    background-color: #1e6ba5;
+    color: #fff;
+}
+
+span.selectedPage {
+    background-color: #1e6ba5;
+    color: #fff;
 }
 
 .user__item {
@@ -36,6 +64,7 @@
 }
 
 .user__button {
+    box-sizing: border-box;
     color: #fff;
     font-size: 18px;
     min-width: 100px;
@@ -51,9 +80,7 @@
     cursor: pointer;
 }
 
-.user__button:focus {
-    outline: none;
-}
+
 
 .follow {
     background-color: #1e6aa5;

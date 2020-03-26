@@ -57,7 +57,7 @@ const MyPosts = React.memo(props => {
 });
 
 const AddPostForm = (props) => {
-    return (<form onSubmit={props.handleSubmit}>
+    return (<form className={s.postForm} onSubmit={props.handleSubmit}>
         <div className={s.form__leftSide}>
             <Field component={Textarea}
                 name={'newPostBody'}

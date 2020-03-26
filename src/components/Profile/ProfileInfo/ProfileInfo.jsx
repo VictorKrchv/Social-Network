@@ -5,6 +5,7 @@ import profileAvatar from "../../../assets/images/profileAvatar.png"
 import ProfileStatus from "./ProfileStatus"
 import ProfileContact from './ProfileContact';
 import ProfileStatusWithHooks from './ProfileStatusWIthHooks';
+import { NavLink } from 'react-router-dom';
 
 const ProfileInfo = (props) => {
 
@@ -13,13 +14,17 @@ const ProfileInfo = (props) => {
             <PreLoader />
         </div>
     }
+    debugger
 
     return (
         <div>
             <div className={s.profileInfo}>
-                <div className={s.profileInfo__photo}>
+                <div className={s.profileInfo__left}>
                     <div className={s.profileInfo__photoInner}>
                         <img src={props.profile.photos.large ? props.profile.photos.large : profileAvatar} alt="" />
+                    </div>
+                    <div className={s.profileInfo__getDialog}>
+                        <NavLink to={`/dialogs/${props.profile.userId}`}>Start Messages</NavLink>
                     </div>
                 </div>
                 <div className={s.profileInfo__description}>
