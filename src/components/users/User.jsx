@@ -13,13 +13,13 @@ let User = (props) => {
             <div className={s.user__inner}>
                 <div className={s.user__photo}>
                     <NavLink to={'/profile/' + d.id}>
-                        <img src={d.photos.small != null ? d.photos.small : avatar} alt="" className={s.user__img} />
+                        <img src={d.photos.small !== null ? d.photos.small : avatar} alt="" className={s.user__img} />
                     </NavLink>
                     <div>
                         {d.followed
-                            ? <button disabled={props.followingInProgress.some(id => id == d.id)} className={`${s.user__button} ${s.unfollow}`}
+                            ? <button disabled={props.followingInProgress.some(id => id === d.id)} className={`${s.user__button} ${s.unfollow}`}
                                 onClick={() => { props.unfollow(d.id) }}>Unfollow</button>
-                            : <button disabled={props.followingInProgress.some(id => id == d.id)} className={`${s.user__button} ${s.follow}`}
+                            : <button disabled={props.followingInProgress.some(id => id === d.id)} className={`${s.user__button} ${s.follow}`}
                                 onClick={() => { props.follow(d.id) }}>Follow</button>}
                     </div>
                 </div>

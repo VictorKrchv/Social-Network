@@ -6,8 +6,7 @@ import arrowRight from '../../assets/images/right-arrow.svg'
 let Paginator = (props) => {
 
     const onKeyPress = (p, e) => {
-
-        if (e.key == "Enter") {
+        if (e.key === "Enter") {
             props.onPageChanged(p)
         }
     }
@@ -38,7 +37,7 @@ let Paginator = (props) => {
         <div className={s.pages}>
             <button  onClick={minusRange}><img src={arrowLeft} alt="" /></button>
             {paginatorRange.map(p => {
-                return <span tabindex="0" onKeyPress={(e) => onKeyPress(p, e)} key={p.id} onClick={() => { props.onPageChanged(p) }} className={props.currentPage === p && s.selectedPage}>{p}</span>
+                return <span tabIndex="0" onKeyPress={(e) => onKeyPress(p, e)} key={[p]} onClick={() => { props.onPageChanged(p) }} className={props.currentPage === p ? s.selectedPage : undefined}>{p}</span>
             })}
             <button onClick={plusRange}><img src={arrowRight} alt="" /></button>
         </div>

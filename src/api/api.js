@@ -62,9 +62,9 @@ export const authAPI = {
 
 export const dialogsAPI = {
     startDialog(id) {
-        instance.put(`dialogs/${id}`)
+        return instance.put(`dialogs/${id}`)
             .then(response => {
-                return response
+                return response.data
             })
     },
     getDialogs() {
@@ -75,20 +75,20 @@ export const dialogsAPI = {
     },
     getMessages(id) {
         return instance.get(`dialogs/${id}/messages`)
-        .then(response => {
-            return response.data
-        })
+            .then(response => {
+                return response.data
+            })
     },
     sendMessage(id, body) {
-        return instance.post(`dialogs/${id}/messages`, {body})
-        .then(response => {
-            return response.data
-        })
+        return instance.post(`dialogs/${id}/messages`, { body })
+            .then(response => {
+                return response.data
+            })
     },
     deleteMessage(id) {
         return instance.delete(`dialogs/messages/${id}`)
-        .then(response => {
-            return response.data
-        })
+            .then(response => {
+                return response.data
+            })
     }
 }

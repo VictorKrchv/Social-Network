@@ -13,9 +13,7 @@
     
 }
 
-.dialogsItem .active {
-    color: gold;
-}
+
 
 .dialog:last-of-type {
     margin-bottom: 0;
@@ -30,6 +28,10 @@
 }
 
 .dialog__item:hover {
+    background-color: #b7b6b6;
+}
+
+.active {
     background-color: #b7b6b6;
 }
 

@@ -1,16 +1,13 @@
 import { dialogsAPI } from "../api/api"
 
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT"
 const SEND_MESSAGE = "ADD-MESSAGE"
 const SET_DIALOGS = "SET_DIALOGS"
 const SET_MESSAGES = "SET_MESSAGES"
 
 let initialState = {
     dialogs: [],
-    messages: []
-
-
-
+    messages: [],
+    isLoading: false
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -51,11 +48,16 @@ export const setMessages = (messages) => ({
     type: SET_MESSAGES, messages
 })
 
-
+export const startDialog = (id) => async (dispatch) => {
+    let response = await dialogsAPI.startDialog(id)
+    if (response.resultCode === 0) {
+        let newDialogs = await dialogsAPI.getDialogs()
+        dispatch(setDialogs(newDialogs))
+    }
+}
 
 export const getUserDialogs = () => async (dispatch) => {
     let response = await dialogsAPI.getDialogs()
-
     dispatch(setDialogs(response))
 }
 
@@ -66,14 +68,14 @@ export const getMessagesWithUser = (id) => async (dispatch) => {
 
 export const sendMessage = (id, body) => async (dispatch) => {
     let response = await dialogsAPI.sendMessage(id, body)
-    if (response.resultCode == 0) {
+    if (response.resultCode === 0) {
         let r = await dialogsAPI.getMessages(id)
         dispatch(setMessages(r.items))
     }
 }
 export const deleteMessage = (id, companionId) => async (dispatch) => {
     let response = await dialogsAPI.deleteMessage(id)
-    if (response.resultCode == 0) {
+    if (response.resultCode === 0) {
         let rs = await dialogsAPI.getMessages(companionId)
         dispatch(setMessages(rs.items))
     }

@@ -6,7 +6,7 @@ const Post = (props) => {
   return (
     <div className={s.post}>
       <div className={s.post__img}>
-        <img src='https://pngimage.net/wp-content/uploads/2018/06/who-icon-png-1.png' />
+        <img  alt="user" src='https://pngimage.net/wp-content/uploads/2018/06/who-icon-png-1.png' />
       </div>
       <div className={s.post__info}>
         <div className={s.post__author}>Victor</div>
@@ -16,7 +16,7 @@ const Post = (props) => {
       <div className={s.post__likes} >
         Likes {props.likesCount}
       </div>
-      <img className={s.post__deleteIcon} src={deleteIcon} onClick={props.detetePost} />
+      <img alt="delete-icon" className={s.post__deleteIcon} src={deleteIcon} onClick={props.detetePost} />
     </div>
   )
 }

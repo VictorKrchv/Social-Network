@@ -22,7 +22,7 @@ const LoginForm = (props) => {
                     validate={[required, maxLength30]} placeholder="Password" />
             </div>
             <div>
-                <Field name={'rememberMe '} component={Input} type="checkbox" name="rememberMe" id="" /> Remember my
+                <Field name={'rememberMe '} component={Input} type="checkbox" id="" /> Remember my
             </div>
             {props.error && <div className={s.formSummaryError}>
                                 {props.error}

@@ -15,7 +15,7 @@ const Header = (props) => {
     }
 
     const onKeyPress = (callback, e) => {
-        if (e.key == "Enter") {
+        if (e.key === "Enter") {
             callback()
         }
     }
@@ -24,9 +24,9 @@ const Header = (props) => {
 
     return <header className={s.header}>
         <img className={s.logo} src="https://duraspace.org/wp-content/themes/duraspace/assets/images/duracloud/duracloud-logo-transparent.png" alt="" />
-        {props.isAuth == true ?
+        {props.isAuth === true ?
             <div className={s.user}>
-                <div tabindex="0" className={s.user__inner} onClick={handleToggleMenu} onKeyPress={(e) => onKeyPress(handleToggleMenu, e)}>
+                <div tabIndex="0" className={s.user__inner} onClick={handleToggleMenu} onKeyPress={(e) => onKeyPress(handleToggleMenu, e)}>
                     <div className={s.user__name}>
                         {props.login}
                     </div>
