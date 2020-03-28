@@ -14,45 +14,65 @@ const Textarea = Element("textarea");
 
 const Dialogs = (props) => {
 
-    const [currentCompanion, setCurrentCompanion] = useState(null);
-
-    let deleteMessage = (messageId) => {
-        props.deleteMessage(messageId, currentCompanion)
-    }
-
-
-    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem isLoading={props.dialogsPage.isLoading} currentCompanion={currentCompanion} setCompanion={setCurrentCompanion.bind(null, d.id)} getDialog={props.getMessagesWithUser} getMessagesWithUser={props.getMessagesWithUser} name={d.userName} key={d.id} id={d.id} />);
-    let messagesElements = props.dialogsPage.messages.map(m => <Message deleteMessage={deleteMessage} userId={props.userId} senderId={m.senderId} message={m.body} key={m.id} id={m.id} />);
-
     useEffect(() => {
         props.getUserDialogs()
     }, [])
 
 
-    
+    let deleteMessage = (messageId) => {
+        props.deleteMessage(messageId, props.dialogsPage.currentCompanion.id)
+    }
 
     let addMessage = (values) => {
-        props.sendMessage(currentCompanion, values.newMessageBody)
-        props.startDialog(currentCompanion)
+        props.sendMessage(props.dialogsPage.currentCompanion.id, values.newMessageBody)
+        props.startDialog(props.dialogsPage.currentCompanion.id)
         values.newMessageBody = ""
     }
+
+
+    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem
+        isLoading={props.dialogsPage.isLoading}
+        currentCompanion={props.dialogsPage.currentCompanion}
+        setCompanion={props.setCurrentCompanion.bind(null, d.id)}
+        getDialog={props.getMessagesWithUser}
+        getMessagesWithUser={props.getMessagesWithUser}
+        name={d.userName}
+        key={d.id}
+        id={d.id}
+        isLoading={props.dialogsPage.isLoading} />);
+
+
+    let messagesElements = props.dialogsPage.messages.map(m => <Message
+        deleteMessage={deleteMessage}
+        userId={props.userId}
+        senderId={m.senderId}
+        message={m.body}
+        key={m.id}
+        id={m.id}
+        isLoading={props.dialogsPage.isLoading} />);
 
     return (
         <div className={s.dialogs}>
 
             <div className={s.dialogs__main}>
                 <div className={s.dialogsItems}>
-                    {dialogsElements.length > 0 ? dialogsElements : <PreLoader />}
-                </div>
-                <div className={s.messages}>
-                    <div className={s.messages__list}> {currentCompanion !== null
-                        ? messagesElements.length > 0 ? messagesElements : <h3>Список диалогов пуст</h3>
-                        : dialogsElements.length > 0 ? <div className={s.hint}>select your companion</div> : null}
-                    </div>
-                    {currentCompanion !== null ? <AddMessageFormRedux onSubmit={addMessage} /> : null}
+                    {dialogsElements.length > 0
+                        ? dialogsElements
+                        : <div className={s.dialogsClear}>The list of dialogs is empty. <br /> Start dialog with user in profile.</div>}
                 </div>
 
+                <div className={s.messages}>
+                    {props.dialogsPage.isLoading
+                        ? <div className={s.hint}><PreLoader /></div>
+                        : <div className={s.messages__list}>
+                            {props.dialogsPage.currentCompanion.id !== null
+                                ? messagesElements.length > 0 ? messagesElements : <h3>Список сообщений пуст</h3>
+                                : dialogsElements.length > 0 ? <div className={s.hint}>Select your companion</div> : null}
+                        </div>}
+                    {props.dialogsPage.currentCompanion.id !== null ? <AddMessageFormRedux onSubmit={addMessage} /> : null}
+                </div>
             </div>
+
         </div>
     )
 }

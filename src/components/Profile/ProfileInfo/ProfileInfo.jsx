@@ -6,7 +6,7 @@ import ProfileContact from './ProfileContact';
 import ProfileStatusWithHooks from './ProfileStatusWIthHooks';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { startDialog } from '../../../redux/dialogs-reducer';
+import { startDialog, getMessagesWithUser } from '../../../redux/dialogs-reducer';
 
 const ProfileInfo = (props) => {
 
@@ -16,8 +16,13 @@ const ProfileInfo = (props) => {
         </div>
     }
     
+    
     const dispatch = useDispatch()
-
+    
+    let startDialogWithUser = async (id) => {
+        let response = await dispatch(startDialog(id))
+        if (response) dispatch(getMessagesWithUser(id))
+    }
 
     return (
         <div>
@@ -27,7 +32,7 @@ const ProfileInfo = (props) => {
                         <img src={props.profile.photos.large ? props.profile.photos.large : profileAvatar} alt="" />
                     </div>
                     <div className={s.profileInfo__getDialog}>
-                        <NavLink onClick={() => dispatch(startDialog(props.profile.userId))} to={`/dialogs/${props.profile.userId}`}>Start Messages</NavLink>
+                        <NavLink onClick={() => startDialogWithUser(props.profile.userId)} to={`/dialogs`}>Start Messages</NavLink>
                     </div>
                 </div>
                 <div className={s.profileInfo__description}>

@@ -42,7 +42,7 @@ const MyPosts = React.memo(props => {
         props.addPost(values.newPostBody)
         values.newPostBody = ""
     }
-   
+    
 
     return (
         <div className={s.postsBlock}>

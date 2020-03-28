@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import s from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 import downArrow from '../../assets/images/down-arrow.svg'
-import userAvatar from '../../assets/images/user-avatar.png'
+import userAvatar from '../../assets/images/user-icon.svg'
 
 
 const Header = (props) => {

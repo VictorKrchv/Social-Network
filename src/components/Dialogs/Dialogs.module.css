@@ -1,16 +1,41 @@
 .dialogs {
-    
+    position: relative;
+}
+
+.dialogsClear {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 20px;
 }
 
 .dialogs__main {
     display: grid;
     grid-template-columns: 3fr 9fr;
-
 }
 
+
 .dialogsItems {
-    border-right: 1px solid gray;
-    
+    overflow: auto;
+    height: 600px;
+}
+
+.dialogsItems::-webkit-scrollbar {
+    width: 7px;
+    height: 20px;
+}
+
+.dialogsItems::-webkit-scrollbar-track {
+    background-color: #ececec;
+    border: 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2) inset;
+}
+
+.dialogsItems::-webkit-scrollbar-thumb {
+    background-color: #1e6aa5;
+    border: 2px solid #ececec;
+    border-radius: 8px;
 }
 
 
@@ -20,6 +45,7 @@
 }
 
 .dialog__item {
+    height: 60px;
     display: flex;
     padding: 2px;
     align-items: center;
@@ -28,6 +54,7 @@
 }
 
 .dialog__item:hover {
+    cursor: pointer;
     background-color: #b7b6b6;
 }
 
@@ -62,12 +89,11 @@
 .messages {
     
     padding-left: 10px;
-
     align-self: flex-end;
 }
 
 .messages__list {
-
+    
 }
 
 .hint {
@@ -75,6 +101,7 @@
     font-size: 20px;
     text-transform: uppercase;
     
+    margin-bottom: 50%;
 }
 
 .message {

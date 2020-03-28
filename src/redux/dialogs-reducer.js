@@ -3,11 +3,14 @@ import { dialogsAPI } from "../api/api"
 const SEND_MESSAGE = "ADD-MESSAGE"
 const SET_DIALOGS = "SET_DIALOGS"
 const SET_MESSAGES = "SET_MESSAGES"
+const SET_CURRENT_COMPANION = "SET_CURRENT_COMPANION"
+const SET_IS_LOADING = "SET_IS_LOADING"
 
 let initialState = {
     dialogs: [],
     messages: [],
-    isLoading: false
+    isLoading: false,
+    currentCompanion: {id: null}
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -16,6 +19,18 @@ const dialogsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 dialogs: action.dialogs
+            }
+        }
+        case SET_IS_LOADING: {
+            return {
+                ...state, 
+                isLoading: action.bool
+            }
+        }
+        case SET_CURRENT_COMPANION: {
+            return {
+                ...state,
+                currentCompanion: state.dialogs.find(user => user.id === action.id)
             }
         }
         case SET_MESSAGES: {
@@ -48,12 +63,23 @@ export const setMessages = (messages) => ({
     type: SET_MESSAGES, messages
 })
 
+export const setIsLoading = (bool) => ({
+    type: SET_IS_LOADING, bool
+})
+
+export const setCurrentCompanion = (id) => ({
+    type: SET_CURRENT_COMPANION, id
+})
+
+
 export const startDialog = (id) => async (dispatch) => {
     let response = await dialogsAPI.startDialog(id)
     if (response.resultCode === 0) {
         let newDialogs = await dialogsAPI.getDialogs()
         dispatch(setDialogs(newDialogs))
+        dispatch(setCurrentCompanion(id))
     }
+    return true
 }
 
 export const getUserDialogs = () => async (dispatch) => {
@@ -62,8 +88,11 @@ export const getUserDialogs = () => async (dispatch) => {
 }
 
 export const getMessagesWithUser = (id) => async (dispatch) => {
+    dispatch(setIsLoading(true))
     let response = await dialogsAPI.getMessages(id)
     dispatch(setMessages(response.items))
+    dispatch(setCurrentCompanion(id))
+    dispatch(setIsLoading(false))
 }
 
 export const sendMessage = (id, body) => async (dispatch) => {
@@ -80,5 +109,8 @@ export const deleteMessage = (id, companionId) => async (dispatch) => {
         dispatch(setMessages(rs.items))
     }
 }
+
+
+
 
 export default dialogsReducer

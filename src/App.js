@@ -5,6 +5,7 @@ import { Route, withRouter } from "react-router-dom";
 import FriendsContainer from './components/Friends/FriendsContainer';
 import UsersContainer from './components/users/UsersContainer';
 import HeaderContainer from "./components/Header/HeaderContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import LoginPage from './components/Login/LoginContainer';
 import { connect } from 'react-redux';
 import { initializeApp } from '../src/redux/app-reducer'
@@ -12,7 +13,7 @@ import { compose } from 'redux';
 import PreLoader from './components/common/Preloader';
 
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
-const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+
 const NewsContainer = React.lazy(() => import('./components/News/NewsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
