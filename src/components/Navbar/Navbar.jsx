@@ -1,28 +1,16 @@
 import React from 'react';
 import s from './Navbar.module.css';
-import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
-import { getUserProfile, getUserStatus } from '../../redux/profile-reducer'
-
+import { NavLink, Link } from "react-router-dom";
+import { useSelector,  } from 'react-redux'
 
 const Navbar = () => {
 
     const userId = useSelector(state => state.auth.userId)
-    const loadedProfile = useSelector(state => state.profilePage.profile)
-
-    const dispatch = useDispatch()
-    
-    let setProfile = (userId) => {
-        if (loadedProfile == null || loadedProfile.userId != userId) {
-            dispatch(getUserProfile(userId))
-            dispatch(getUserStatus(userId))
-        }
-    }
 
     return (
         <nav className={s.nav}>
             <div className={s.item}>
-                <NavLink onClick={() => setProfile(userId)} to={`/profile/${userId}`} activeClassName={s.active}>Profile</NavLink>
+                <Link to={`/profile/${userId}`} activeClassName={s.active}>Profile</Link>
             </div>
             <div className={`${s.item}`}>
                 <NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
